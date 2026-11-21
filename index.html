@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sleep Ring – plan your sleep on a 24-hour dial</title>
+  <meta name="description" content="Drag the bedtime and wake-up handles around a 24-hour ring and see how long you'll sleep.">
+  <meta name="theme-color" content="#111113">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header class="times">
+      <div class="time-block">
+        <div class="label bed-label">
+          <svg viewBox="-12 -9 24 18" width="22" height="16" aria-hidden="true"><g class="ico-fill">
+            <rect x="-11" y="-7" width="3" height="15" rx="1.2"/><rect x="-11" y="1.5" width="22" height="3.5" rx="1"/>
+            <rect x="-6" y="-3.5" width="6" height="4" rx="2"/><rect x="2" y="-3.5" width="9" height="4" rx="1.2"/></g></svg>
+          <span>BEDTIME</span>
+        </div>
+        <div id="bedTime" class="big">11:00 PM</div>
+        <div id="bedDay" class="sub">Tonight</div>
+      </div>
+
+      <button id="alarmToggle" class="time-block alarm" type="button" aria-pressed="false" title="Toggle alarm">
+        <div class="label">
+          <svg viewBox="-11 -10 22 20" width="18" height="16" aria-hidden="true"><g class="ico-stroke">
+            <circle cx="0" cy="1" r="6.5"/><path d="M0 -2 V1.2 L2.4 2.6"/><path d="M-9.5 -3 L-6.5 -7 M9.5 -3 L6.5 -7"/></g></svg>
+          <span id="alarmLabel">WAKE UP - NO ALARM</span>
+        </div>
+        <div id="wakeTime" class="big">7:15 AM</div>
+        <div id="wakeDay" class="sub">Tomorrow</div>
+      </button>
+    </header>
+
+    <div class="dial-wrap">
+      <svg id="dial" viewBox="0 0 420 420" role="group" aria-label="24-hour sleep dial. Drag the bed and alarm handles, or drag the band to move your whole sleep window."></svg>
+    </div>
+
+    <section class="summary">
+      <div id="duration" class="duration" aria-live="polite">8 hr 15 min</div>
+      <p id="verdict" class="verdict">This schedule meets your sleep goal.</p>
+      <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+      <div class="stats">
+        <span>≈ <b id="cycles">5.5</b> sleep cycles</span>
+        <span><b id="pct">103%</b> of goal</span>
+      </div>
+    </section>
+
+    <section class="goal">
+      <label for="goal">Sleep goal</label>
+      <input id="goal" type="range" min="4" max="12" step="0.5" value="8">
+      <output id="goalOut" for="goal">8 hr</output>
+    </section>
+
+    <p class="hint">Drag a handle · drag the band to shift both · arrow keys nudge by 5 min</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
